@@ -19,6 +19,7 @@
 
 	<!-- Add support for conversion, formatting and validation support -->
 	<mvc:annotation-driven/>
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 
 	<!-- Define Spring MVC view resolver -->
 	<bean
@@ -31,7 +32,7 @@
 	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/?user=customer-relation-mapping" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/web_customer_tracker" />
         <property name="user" value="customer-relation-mapping" />
         <property name="password" value="koushikRuidas" /> 
 
@@ -45,7 +46,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="myDataSource" />
-		<property name="packagesToScan" value="com.luv2code.springdemo.entity" />
+		<property name="packagesToScan" value="com.koushik.CRM.entity" />
 		<property name="hibernateProperties">
 		   <props>
 		      <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>

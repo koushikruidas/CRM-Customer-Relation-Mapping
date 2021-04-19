@@ -25,8 +25,8 @@ public class TestDbServlet extends HttpServlet {
 		// set up connection variables
 		String user= "customer-relation-mapping";
 		String pass= "koushikRuidas";
-		String jdbcUrl= "jdbc:mysql://127.0.0.1:3306/?user=customer-relation-mapping";
-		String driver= "com.mysql.jdbc.Driver";
+		String jdbcUrl= "jdbc:mysql://127.0.0.1:3306/web_customer_tracker";
+		String driver= "com.mysql.cj.jdbc.Driver";
 		
 		// get the connection
 		try {
@@ -35,6 +35,17 @@ public class TestDbServlet extends HttpServlet {
 			Class.forName(driver);
 			Connection connection = DriverManager.getConnection(jdbcUrl, user, pass);
 			out.println("Connected to the database..");
+			Statement stmt = connection.createStatement();
+			String query = "select * from customer";
+			ResultSet rs = stmt.executeQuery(query);
+			 while (rs.next()) {
+			        String firstName = rs.getString("first_name");
+			        String lastName = rs.getString("last_name");
+			        String email = rs.getString("email");
+			        int id = rs.getInt("id");
+			        System.out.println(id + ", " + firstName + ", " + lastName +
+			                           ", " + email);
+			      }
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
