@@ -1,9 +1,7 @@
 package com.koushik.CRM.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,7 +19,6 @@ public class CustomerDaoImplementation implements CustomerDao {
 	private SessionFactory sessionFactory;
 
 	@Override
-	@Transactional
 	public List<Customer> getCustomer() {
 		// Get the current session
 		Session session = sessionFactory.getCurrentSession();
