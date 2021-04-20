@@ -1,5 +1,6 @@
 package com.koushik.CRM.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -36,6 +37,12 @@ public class CustomerDaoImplementation implements CustomerDao {
 		
 		//return the list
 		return customers;
+	}
+	
+	@Override
+	public void saveCustomer(Customer customer) {
+		Session session = sessionFactory.getCurrentSession();
+		session.save(session);
 	}
 
 }

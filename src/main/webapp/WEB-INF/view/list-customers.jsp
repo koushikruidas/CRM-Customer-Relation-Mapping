@@ -19,17 +19,20 @@
 		</div>
 		<div id="container">
 			<div id="content">
+				<input type="button" onclick="window.location.href='showFormForAdd'"
+					class="add-button" value="Add Customer" />
+
 				<table>
 					<tr>
-						<th>First Name </th>
-						<th>Last Name </th>
-						<th>Email </th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
 					</tr>
 					<c:forEach var="tempCustomer" items="${customers}">
 						<tr>
-							<td>${tempCustomer.firstName} </td>
-							<td>${tempCustomer.lastName } </td>
-							<td>${tempCustomer.email } </td>
+							<td>${tempCustomer.firstName}</td>
+							<td>${tempCustomer.lastName }</td>
+							<td>${tempCustomer.email }</td>
 						</tr>
 					</c:forEach>
 				</table>
