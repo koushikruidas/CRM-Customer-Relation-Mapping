@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 	
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -13,8 +13,11 @@
 
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/add-customer-style.css" />
-
-
+<style type="text/css">
+	.error {
+		color: red;
+	}
+</style>
 </head>
 <body>
 	<div id="wrapper">
@@ -23,19 +26,27 @@
 		</div>
 		<div id="container">
 			<h3>Save Customer</h3>
-			<form:form action="saveCustomer" modelAttribute="customer" method="POST">
+			<form:form action="saveCustomer" modelAttribute="customer"
+				method="POST">
 				<table>
 					<tr>
 						<td><label>First Name: </label></td>
-						<td><form:input path="firstName"/>
+						<td><form:input path="firstName" />
+						<form:errors
+								path="firstName" cssClass="error" />
 					</tr>
 					<tr>
 						<td><label>Last Name: </label></td>
-						<td><form:input path="lastName"/>
+						<td><form:input path="lastName" /> 
+							<form:errors
+								path="lastName" cssClass="error" />
+						</td>
 					</tr>
 					<tr>
 						<td><label>Email: </label></td>
-						<td><form:input path="email"/>
+						<td><form:input path="email" />
+						<form:errors
+								path="email" cssClass="error" />
 					</tr>
 					<tr>
 						<td><label></label></td>

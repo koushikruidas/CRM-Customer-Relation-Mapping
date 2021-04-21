@@ -27,12 +27,14 @@
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Email</th>
+						<th>Action</th>
 					</tr>
 					<c:forEach var="tempCustomer" items="${customers}">
 						<tr>
 							<td>${tempCustomer.firstName}</td>
 							<td>${tempCustomer.lastName }</td>
 							<td>${tempCustomer.email }</td>
+							<td><a href="${pageContext.request.contextPath }/updateCustomer">Update</a>
 						</tr>
 					</c:forEach>
 				</table>
