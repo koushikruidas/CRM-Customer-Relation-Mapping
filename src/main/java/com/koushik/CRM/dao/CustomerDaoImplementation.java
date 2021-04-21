@@ -1,13 +1,10 @@
 package com.koushik.CRM.dao;
 
-import java.io.Serializable;
 import java.util.List;
-
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-//import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -42,7 +39,7 @@ public class CustomerDaoImplementation implements CustomerDao {
 	@Override
 	public void saveCustomer(Customer customer) {
 		Session session = sessionFactory.getCurrentSession();
-		session.save(session);
+		session.save(customer);
 	}
 
 }

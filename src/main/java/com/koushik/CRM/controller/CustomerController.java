@@ -26,7 +26,7 @@ public class CustomerController {
 		return "list-customers";
 	}
 	
-	@RequestMapping("showFormForAdd")
+	@RequestMapping("/showFormForAdd")
 	public String showFormForAdd(Model model) {
 		Customer customer = new Customer();
 		model.addAttribute("customer", customer);
@@ -40,8 +40,9 @@ public class CustomerController {
 			return "customer-form";
 		}
 		else {
-			customerService.saveCustomer(customer);
+			customerService.saveCustomers(customer);
 			return "redirect:/customer/list";
 		}
+
 	}
 }
