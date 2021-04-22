@@ -56,4 +56,14 @@ public class CustomerDaoImplementation implements CustomerDao {
 		session.delete(customer);
 	}
 
+	@Override
+	public List<Customer> getCustomerByName(String name) {
+		Session session = sessionFactory.getCurrentSession();
+		Query<Customer> theQuery = session.createQuery("from Customer where firstName like :name "
+				+ "or lastName like :name");
+		theQuery.setParameter("name", name);
+		List<Customer> customers = theQuery.getResultList();
+		return customers;
+	}
+
 }

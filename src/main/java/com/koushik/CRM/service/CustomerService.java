@@ -7,5 +7,6 @@ public interface CustomerService {
 	public List<Customer> getCustomers(); 
 	public void saveCustomers(Customer customer);
 	public Customer getCustomer(int theId);
+	public List<Customer> getCustomerByName(String name);
 	public void deleteCustomer(int theId);
 }
