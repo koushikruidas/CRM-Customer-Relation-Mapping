@@ -13,6 +13,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.koushik.CRM.entity.Customer;
 import com.koushik.CRM.service.CustomerService;
@@ -56,5 +57,14 @@ public class CustomerController {
 			return "redirect:/customer/list";
 		}
 
+	}
+	
+	@RequestMapping("/updateCustomer")
+	public String update(
+			@RequestParam("customerId") int theId,
+			Model model) {
+		Customer customer = customerService.getCustomer(theId);
+		model.addAttribute("customer-update",customer);
+		return "customer-update";
 	}
 }
