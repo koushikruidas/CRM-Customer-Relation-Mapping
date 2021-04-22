@@ -49,4 +49,11 @@ public class CustomerDaoImplementation implements CustomerDao {
 		return customer;
 	}
 
+	@Override
+	public void deleteCustomer(int theId) {
+		Session session = sessionFactory.getCurrentSession();
+		Customer customer = session.get(Customer.class, theId);
+		session.delete(customer);
+	}
+
 }
